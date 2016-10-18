@@ -27,14 +27,24 @@ func findLargestPrimeFactor(number: Int) {
     } else {
         var largestPrimeFactorial = 0
         
-        for index in 2..<number {
-            if isPrime(number: index) && number % index == 0 {
-                largestPrimeFactorial = index
-                print("Prime factor: \(largestPrimeFactorial)")
-            }
+        for index in 2..<number where isPrime(number: index) && number % index == 0 {
+            largestPrimeFactorial = index
+            print("Prime factor: \(largestPrimeFactorial)")
         }
     }
 }
 
+func printPrimeFactors(number: Int) {
+    var temp = number
+    var factorArray = [Int]()
+    
+    for index in 2..<temp where temp % index == 0 {
+        factorArray.append(index)
+        print(factorArray)
+        temp /= index
+    }
+}
+
 let limit = 600851475143
-findLargestPrimeFactor(number: limit)
+//findLargestPrimeFactor(number: limit)
+//findPrimeFactors(number: limit)
