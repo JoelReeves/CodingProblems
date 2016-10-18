@@ -8,7 +8,6 @@
  
  */
 
-
 func isPrime(number: Int) -> Bool {
     if number < 2 {
         return false
@@ -21,3 +20,21 @@ func isPrime(number: Int) -> Bool {
     }
     return true
 }
+
+func findLargestPrimeFactor(number: Int) {
+    if number < 2 {
+        print("Please enter number greater than 2")
+    } else {
+        var largestPrimeFactorial = 0
+        
+        for index in 2..<number {
+            if isPrime(number: index) && number % index == 0 {
+                largestPrimeFactorial = index
+                print("Prime factor: \(largestPrimeFactorial)")
+            }
+        }
+    }
+}
+
+let limit = 600851475143
+findLargestPrimeFactor(number: limit)
